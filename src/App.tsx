@@ -1,42 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Accordion } from 'react-bootstrap';
 import './App.css'
-import { Badge, Button } from 'react-bootstrap'
-import { Provider } from 'react-redux'
-import { store } from './store'
+
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <Provider store={store}>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="header-nav">
+        <h1>Trade Watcher Prototype</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
 
-      <h1>
-        <Badge bg="secondary">New</Badge>
-        <Button variant="primary">Exampe... tuh-duh</Button>
-      </h1>
+      <div className="proxy-router-feature-accordion">
+        <Accordion defaultActiveKey="2">
+          <Accordion.Item eventKey='0'>
+            <Accordion.Header>
+              Login
+            </Accordion.Header>
+            <Accordion.Body>
+              {/* TODO - LOGIN ROUTE AND COMPONENT */}
+              <h1>Login Feature goes here</h1>
+            </Accordion.Body>
+          </Accordion.Item>
+
+          <Accordion.Item eventKey='1'>
+            <Accordion.Header>Dashboard</Accordion.Header>
+            <Accordion.Body>
+              <h1>Dashboard goes here</h1>
+            </Accordion.Body>
+          </Accordion.Item>
+
+          <Accordion.Item eventKey='2'>
+            <Accordion.Header>Add Record</Accordion.Header>
+            <Accordion.Body>
+              <h1>Add records here</h1>
+            </Accordion.Body>
+          </Accordion.Item>
+
+          <Accordion.Item eventKey='3'>
+            <Accordion.Header>Transaction List</Accordion.Header>
+            <Accordion.Body>
+              <h1>Trx List goes here!</h1>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </div>  
+
     </Provider>
   )
 }
