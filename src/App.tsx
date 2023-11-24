@@ -3,6 +3,7 @@ import './App.css'
 
 import { Provider } from 'react-redux';
 import { store } from './store';
+import AddRecord from './features/add-record';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
           <Accordion.Item eventKey='2'>
             <Accordion.Header>Add Record</Accordion.Header>
             <Accordion.Body>
-              <h1>Add records here</h1>
+              <AddRecord/>
             </Accordion.Body>
           </Accordion.Item>
 
