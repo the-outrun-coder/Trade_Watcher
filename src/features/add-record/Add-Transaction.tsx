@@ -1,35 +1,53 @@
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
+
+const handleAddTrx = async (event: React.SyntheticEvent) => {
+  event.preventDefault();
+
+  const formTarget = new FormData(event.nativeEvent.target);
+  
+  console.log(event);
+  // debugger;
+
+  const providedEntries = Object.fromEntries(formTarget.entries());
+
+  // console.log('Form Data:', event.target);
+  console.log('Form Data:', providedEntries);
+}
 
 function AddTransaction() {
+  const formIdPrefix = 'formAddTrx';
+  const inputId = {
+    acqAmtId: `${formIdPrefix}_acquiredAmount`,
+    acqSymId: `${formIdPrefix}_acquiredSymbol`,
+    paidAmt :`${formIdPrefix}_purchaseAmount`,
+    paidSym :`${formIdPrefix}_purchaseSymbol`,
+  };
+
   return (
-    <Form>
-      <Form.Group controlId="formAddTrx_acquiredAmount">
-        <InputGroup className="mb-3">
-          <InputGroup.Text>Amount Purchased</InputGroup.Text>
-          <Form.Control/>
-        </InputGroup>
-      </Form.Group>
+    <Form onSubmit={handleAddTrx}>
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId={inputId.acqAmtId}>
+          <Form.Label>Amount Purchased</Form.Label>
+          <Form.Control name={inputId.acqAmtId}/>
+        </Form.Group>
 
-      <Form.Group controlId="formAddTrx_acquiredSymbol">
-        <InputGroup className="mb-3">
-          <InputGroup.Text>Purchase Symbol</InputGroup.Text>
-          <Form.Control/>
-        </InputGroup>
-      </Form.Group>
+        <Form.Group as={Col} controlId={inputId.acqSymId}>
+          <Form.Label>Purchase Symbol</Form.Label>
+          <Form.Control name={inputId.acqSymId}/>
+        </Form.Group>
+      </Row>
 
-      <Form.Group controlId="formAddTrx_purchaseAmount">
-        <InputGroup className="mb-3">
-          <InputGroup.Text>Amount Paid</InputGroup.Text>
-          <Form.Control/>
-        </InputGroup>
-      </Form.Group>
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId={inputId.paidAmt}>
+          <Form.Label>Amount Paid</Form.Label>
+          <Form.Control name={inputId.paidAmt}/>
+        </Form.Group>
 
-      <Form.Group controlId="formAddTrx_purchaseSymbol">
-        <InputGroup className="mb-3">
-          <InputGroup.Text>Paid Symbol</InputGroup.Text>
-          <Form.Control/>
-        </InputGroup>
-      </Form.Group>
+        <Form.Group as={Col} controlId={inputId.paidSym}>
+          <Form.Label>Paid Symbol</Form.Label>
+          <Form.Control name={inputId.paidSym}/>
+        </Form.Group>
+      </Row>
 
       <Button type="submit" variant="primary">Add Transaction</Button>
     </Form>
