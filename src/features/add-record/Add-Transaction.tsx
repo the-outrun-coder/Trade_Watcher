@@ -1,4 +1,6 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { store } from "../../store";
+import { addTrx } from "../../store/slice/transactions";
 
 const handleAddTrx = async (event: React.SyntheticEvent) => {
   event.preventDefault();
@@ -22,6 +24,9 @@ function AddTransaction() {
     paidAmt :`${formIdPrefix}_purchaseAmount`,
     paidSym :`${formIdPrefix}_purchaseSymbol`,
   };
+
+  // X - REMOVE
+  store.dispatch(addTrx({test: true, apples: 3, merp: 'derp'}));
 
   return (
     <Form onSubmit={handleAddTrx}>
