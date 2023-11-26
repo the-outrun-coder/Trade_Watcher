@@ -9,11 +9,20 @@ export const trxSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
-    // TODO - 
     addTrx: (state, action) => {
+      const {
+        formAddTrx_acquiredAmount: acquiredAmount,
+        formAddTrx_acquiredSymbol: acquiredSymbol,
+        formAddTrx_purchaseAmount: purchaseAmount,
+        formAddTrx_purchaseSymbol: purchaseSymbol
+      } = action.payload;
+
       state = state.push({
-        ...{ id: uuidv4() },
-        ...action.payload
+          id: uuidv4(),
+          acquiredAmount,
+          acquiredSymbol,
+          purchaseAmount,
+          purchaseSymbol
       });
     }
     // modifyTrx
