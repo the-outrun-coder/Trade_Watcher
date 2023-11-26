@@ -4,6 +4,7 @@ import './App.css'
 import { Provider } from 'react-redux';
 import { store } from './store';
 import AddRecord from './features/add-record';
+import TransactionList from './features/transaction-list';
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
           <Accordion.Item eventKey='3'>
             <Accordion.Header>Transaction List</Accordion.Header>
             <Accordion.Body>
-              <h1>Trx List goes here!</h1>
+              <TransactionList/>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
