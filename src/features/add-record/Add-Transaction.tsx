@@ -14,6 +14,8 @@ const handleAddTrx = async (event: React.SyntheticEvent) => {
 
   // console.log('Form Data:', event.target);
   console.log('Form Data:', providedEntries);
+
+  store.dispatch(addTrx(providedEntries));
 }
 
 function AddTransaction() {
@@ -24,9 +26,6 @@ function AddTransaction() {
     paidAmt :`${formIdPrefix}_purchaseAmount`,
     paidSym :`${formIdPrefix}_purchaseSymbol`,
   };
-
-  // X - REMOVE
-  store.dispatch(addTrx({test: true, apples: 3, merp: 'derp'}));
 
   return (
     <Form onSubmit={handleAddTrx}>
