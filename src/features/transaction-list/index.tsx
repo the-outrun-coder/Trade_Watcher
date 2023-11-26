@@ -1,18 +1,16 @@
+import { useSelector } from "react-redux";
 import { ListGroup } from "react-bootstrap";
+import TrxItemRow from "./trx-item-row";
 
 function TransactionList() {
-  const testArray = [
-    { id: 'assdkdl' },
-    { id: 'eie8d8d' }
-  ];
+
+  const transactions = useSelector((state: any) => state.transactions);
 
   return (
     <div className="all-trx-list">
       <ListGroup>
-        {testArray.map((trx: any) => {
-          return <ListGroup.Item key={trx.id}>
-            asdf
-          </ListGroup.Item>
+        {transactions.map((trx: any) => {
+          return <TrxItemRow key={trx.id} />
         })}
       </ListGroup>
     </div>
