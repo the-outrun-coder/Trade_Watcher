@@ -1,9 +1,23 @@
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Container, Row, Col } from "react-bootstrap";
 
-function TrxItemRow() {
+function TrxItemRow({ trx }) {
+  const {
+    acquiredAmount,
+    acquiredSymbol,
+    purchaseAmount,
+    purchaseSymbol
+  } = trx;
+
   return (
     <ListGroup.Item>
-      asdf
+      <Container>
+        <Row>
+          <Col>{acquiredAmount}</Col>
+          <Col>{acquiredSymbol}</Col>
+          <Col>{purchaseAmount}</Col>
+          <Col>{purchaseSymbol}</Col>
+        </Row>
+      </Container>
     </ListGroup.Item>
   );
 }
