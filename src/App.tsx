@@ -5,9 +5,12 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import AddRecord from './features/add-record';
 import TransactionList from './features/transaction-list';
+import { fetchUsers } from './store/slice/users';
 
 
 function App() {
+
+	const getUsers = store.dispatch(fetchUsers());
 
   return (
     <Provider store={store}>
