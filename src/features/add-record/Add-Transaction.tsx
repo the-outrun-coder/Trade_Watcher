@@ -6,14 +6,10 @@ const handleAddTrx = async (event: React.SyntheticEvent) => {
   event.preventDefault();
 
   const formTarget = new FormData(event.nativeEvent.target);
-  
-  console.log(event);
-  // debugger;
 
   const providedEntries = Object.fromEntries(formTarget.entries());
 
-  // console.log('Form Data:', event.target);
-  console.log('Form Data:', providedEntries);
+  // console.log('Form Data:', providedEntries);
 
   store.dispatch(addTrx(providedEntries));
 }
