@@ -24,13 +24,16 @@ export const trxSlice = createSlice({
         formAddTrx_purchaseSymbol: purchaseSymbol
       } = action.payload;
 
-      state = state.push({
-          id: uuidv4(),
+			state = [
+				...state,
+				...[{
+					id: uuidv4(),
           acquiredAmount,
           acquiredSymbol,
           purchaseAmount,
           purchaseSymbol
-      });
+				}]
+			];
     }
     // modifyTrx
     // archiveTrx
