@@ -2,8 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
 // TODO - Create trx entity interface
+interface Transaction {
+	id: string,
+	acquiredAmount: number,
+	acquiredSymbol: string,
+	purchaseAmount: number,
+	purchaseSymbol: string
+}
 
-const initialState: Array<any> = [];
+const initialState: Array<Transaction> = [];
 
 export const trxSlice = createSlice({
   name: 'transactions',
