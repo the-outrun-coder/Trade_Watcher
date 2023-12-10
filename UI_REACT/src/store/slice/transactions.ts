@@ -13,7 +13,7 @@ interface Transaction {
 const initialState: Array<Transaction> = [];
 
 export const trxSlice = createSlice({
-  name: 'transactions',
+  name: 'trxAccount',
   initialState,
   reducers: {
     addTrx: (state, action) => {
@@ -24,8 +24,8 @@ export const trxSlice = createSlice({
         formAddTrx_purchaseSymbol: purchaseSymbol
       } = action.payload;
 
-			state = [
-				...state,
+			state.trxHistory = [
+				...state.trxHistory,
 				...[{
 					id: uuidv4(),
           acquiredAmount,

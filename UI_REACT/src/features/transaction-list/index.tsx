@@ -5,7 +5,7 @@ import TrxItemRow from "./trx-item-row";
 
 function TransactionList() {
 
-  const transactions = useSelector((state: RootState) => state.transactions);
+  const transactionList = useSelector((state: RootState) => state.transactions.trxHistory);
 
   const trxList = [
     ...[
@@ -17,7 +17,7 @@ function TransactionList() {
         // purchaseSymbol
       }
     ],
-    ...transactions
+    ...transactionList
   ];
 
   return (
