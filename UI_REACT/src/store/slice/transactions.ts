@@ -10,7 +10,14 @@ interface Transaction {
 	purchaseSymbol: string
 }
 
-const initialState: Array<Transaction> = [];
+interface TRX_STATE {
+	trxHistory: Array<Transaction>
+}
+
+// const initialState: Array<Transaction> = [];
+const initialState: TRX_STATE = {
+	trxHistory: []
+}
 
 export const trxSlice = createSlice({
   name: 'trxAccount',
