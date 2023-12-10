@@ -1,7 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {
+// TODO - Build a User object interface
+
+interface USER_STATE {
+	loading: boolean,
+	users: Array<undefined>, // TODO <
+	error: string
+}
+
+const initialState: USER_STATE = {
 	loading: false,
 	users: [],
 	error: ''
@@ -24,14 +32,14 @@ const userSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		// PENDING
-		builder.addCase(fetchUsers.pending, (state, _action) => {
+		builder.addCase(fetchUsers.pending, (state) => {
 			state.loading = true
 		});
 		// REJECTED
 		builder.addCase(fetchUsers.rejected, (state, action) => {
 			state.loading = false;
 			state.users = [];
-			state.error = action.error.message;
+			state.error = action.error.message || 'Collecting user data failed';
 		})
 		// FULFILLED
 		builder.addCase(fetchUsers.fulfilled, (state, action) => {
