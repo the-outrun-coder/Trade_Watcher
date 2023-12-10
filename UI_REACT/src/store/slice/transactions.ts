@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface Transaction {
@@ -7,6 +7,12 @@ export interface Transaction {
 	acquiredSymbol: string,
 	purchaseAmount: number,
 	purchaseSymbol: string
+}
+export interface TransactionFormSub {
+	formAddTrx_acquiredAmount: number,
+	formAddTrx_acquiredSymbol: string,
+	formAddTrx_purchaseAmount: number,
+	formAddTrx_purchaseSymbol: string
 }
 
 interface TRX_STATE {
@@ -22,7 +28,7 @@ export const trxSlice = createSlice({
   name: 'trxAccount',
   initialState,
   reducers: {
-    addTrx: (state, action) => {
+    addTrx: (state, action: PayloadAction<TransactionFormSub>) => {
       const {
         formAddTrx_acquiredAmount: acquiredAmount,
         formAddTrx_acquiredSymbol: acquiredSymbol,
