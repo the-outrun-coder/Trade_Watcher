@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux";
 import { ListGroup } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 import TrxItemRow from "./trx-item-row";
 
 function TransactionList() {
 
-  const transactions = useSelector((state: any) => state.transactions);
+  const transactions = useSelector((state: RootState) => state.transactions);
 
   const trxList = [
     ...[
