@@ -21,8 +21,8 @@ function App() {
 				<Container>
 					<Navbar.Brand href='#home'>Coin Market Stamp = Trade Watcher Prototype</Navbar.Brand>
 					<NavbarToggle aria-controls='basic-nav-bar' />
-					<Navbar.Collapse id='basic-nav-bar'>
-						<Nav className="me-auto">
+					<Navbar.Collapse id='basic-nav-bar' className="justify-content-end">
+						<Nav>
 						<Nav.Link href="#home">Home</Nav.Link>
 						<Nav.Link href="#link">Link</Nav.Link>
 							<NavDropdown title="Dropdown" id="basic-nav-dropdown">
