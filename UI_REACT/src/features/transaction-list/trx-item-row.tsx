@@ -1,6 +1,6 @@
 import { ListGroup, Container, Row, Col } from "react-bootstrap";
 
-function TrxItemRow({ trx }) {
+function TrxItemRow({ trx } : any ) {
   const {
     acquiredAmount,
     acquiredSymbol,
