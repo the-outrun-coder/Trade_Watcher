@@ -1,9 +1,6 @@
 #root {
 	margin: 0 auto;
 	text-align: center;
-	/* NOTE - To a container element */
-	/* max-width: 1280px; */
-	/* padding: 2rem; */
 }
 
 .logo {
@@ -40,4 +37,18 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* - LAYOUT - */
+.dyna-container {
+	display: flex;
+	justify-content: center;
+  place-items: center;
+	padding: 2rem;
+	/* border: 1px solid red; */
+}
+
+.dyna-container .column {
+	width: 100%;
+	/* border: 1px solid red; */
 }
