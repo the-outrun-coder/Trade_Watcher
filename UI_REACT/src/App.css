@@ -50,5 +50,6 @@
 
 .dyna-container .column {
 	width: 100%;
+	max-width: 1320px;
 	/* border: 1px solid red; */
 }
