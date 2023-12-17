@@ -1,15 +1,34 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
-// TODO - Create trx entity interface
+export interface Transaction {
+	id: string,
+	acquiredAmount: number,
+	acquiredSymbol: string,
+	purchaseAmount: number,
+	purchaseSymbol: string
+}
+export interface TransactionFormSub {
+	formAddTrx_acquiredAmount: number,
+	formAddTrx_acquiredSymbol: string,
+	formAddTrx_purchaseAmount: number,
+	formAddTrx_purchaseSymbol: string
+}
 
-const initialState: Array<any> = [];
+interface TRX_STATE {
+	trxHistory: Array<Transaction>
+}
+
+// const initialState: Array<Transaction> = [];
+const initialState: TRX_STATE = {
+	trxHistory: []
+}
 
 export const trxSlice = createSlice({
-  name: 'transactions',
+  name: 'trxAccount',
   initialState,
   reducers: {
-    addTrx: (state, action) => {
+    addTrx: (state, action: PayloadAction<TransactionFormSub>) => {
       const {
         formAddTrx_acquiredAmount: acquiredAmount,
         formAddTrx_acquiredSymbol: acquiredSymbol,
@@ -17,13 +36,16 @@ export const trxSlice = createSlice({
         formAddTrx_purchaseSymbol: purchaseSymbol
       } = action.payload;
 
-      state = state.push({
-          id: uuidv4(),
+			state.trxHistory = [
+				...state.trxHistory,
+				...[{
+					id: uuidv4(),
           acquiredAmount,
           acquiredSymbol,
           purchaseAmount,
           purchaseSymbol
-      });
+				}]
+			];
     }
     // modifyTrx
     // archiveTrx

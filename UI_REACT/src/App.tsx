@@ -10,7 +10,8 @@ import { fetchUsers } from './store/slice/users';
 
 function App() {
 
-	const getUsers = store.dispatch(fetchUsers());
+	// const getUsers =
+	store.dispatch(fetchUsers());
 
   return (
     <Provider store={store}>

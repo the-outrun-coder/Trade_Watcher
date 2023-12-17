@@ -2,15 +2,15 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import { store } from "../../store";
 import { addTrx } from "../../store/slice/transactions";
 
-const handleAddTrx = async (event: React.SyntheticEvent) => {
+const handleAddTrx = async (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
 
-  const formTarget = new FormData(event.nativeEvent.target);
-
+  const formTarget = new FormData(event.currentTarget);
   const providedEntries = Object.fromEntries(formTarget.entries());
 
   // console.log('Form Data:', providedEntries);
 
+	// @ts-expect-error - Type checking will be handled at the reducer slice level
   store.dispatch(addTrx(providedEntries));
 }
 
