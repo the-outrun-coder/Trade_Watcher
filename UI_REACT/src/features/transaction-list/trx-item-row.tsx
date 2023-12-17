@@ -1,6 +1,11 @@
 import { ListGroup, Container, Row, Col } from "react-bootstrap";
+import { Transaction } from "../../store/slice/transactions";
 
-function TrxItemRow({ trx } : any ) {
+interface trxRow {
+	trx: Transaction
+}
+
+function TrxItemRow({ trx } : trxRow ) {
   const {
     acquiredAmount,
     acquiredSymbol,
